@@ -8,6 +8,8 @@ NetworkManager::NetworkManager(QQuickItem *parent)
     // following line and re-implement updatePaintNode()
 
     // setFlag(ItemHasContents, true);
+    qDebug()<<"Im here";
+
 }
 
 NetworkManager::~NetworkManager()

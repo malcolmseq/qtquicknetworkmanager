@@ -2,6 +2,7 @@
 #define NETWORKMANAGER_H
 
 #include <QQuickItem>
+#include <QDebug>
 
 class NetworkManager : public QQuickItem
 {
