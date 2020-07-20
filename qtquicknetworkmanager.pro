@@ -1,14 +1,16 @@
 TEMPLATE = lib
 TARGET = qtquicknetworkmanager
-QT += qml quick
+QT += qml quick network dbus
 CONFIG += plugin c++11 pkg-config
 
-PKGCONFIG += libnm
+PKGCONFIG += glib-2.0 gtk+-2.0 gio-unix-2.0# libnm
 DESTDIR = ./bin/QtQuick/NetworkManager
 
 MOC_DIR = tmp
 RCC_DIR = tmp
 OBJECTS_DIR = tmp
+
+INCLUDEPATH += /usr/include/KF5/NetworkManagerQt/
 
 #TARGET = $$qtLibraryTarget($$TARGET)
 #uri = QtQuick.NetworkManager

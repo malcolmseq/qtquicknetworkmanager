@@ -4,6 +4,14 @@
 #include <QQuickItem>
 #include <QDebug>
 
+#include <arpa/inet.h>
+#include <QThread>
+
+#include <NetworkManagerQt/Manager>
+#include <NetworkManagerQt/Device>
+#include <NetworkManagerQt/WirelessDevice>
+#include <NetworkManagerQt/AccessPoint>
+
 class NetworkManager : public QQuickItem
 {
     Q_OBJECT
