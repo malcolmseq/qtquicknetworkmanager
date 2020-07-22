@@ -3,26 +3,30 @@ TARGET = qtquicknetworkmanager
 QT += qml quick network dbus
 CONFIG += plugin c++11 pkg-config
 
-PKGCONFIG += glib-2.0 gtk+-2.0 gio-unix-2.0# libnm
+#PKGCONFIG += glib-2.0 gtk+-2.0 gio-unix-2.0# libnm
 DESTDIR = ./bin/QtQuick/NetworkManager
 
 MOC_DIR = tmp
 RCC_DIR = tmp
 OBJECTS_DIR = tmp
 
-INCLUDEPATH += /usr/include/KF5/NetworkManagerQt/
+#INCLUDEPATH += /usr/include/KF5/NetworkManagerQt/
 
 #TARGET = $$qtLibraryTarget($$TARGET)
 #uri = QtQuick.NetworkManager
 
 # Input
 SOURCES += \
+        networkmanagerprivate.cpp \
         qtquicknetworkmanager_plugin.cpp \
-        networkmanager.cpp
+        networkmanager.cpp \
+        wifiaccesspointsmodel.cpp
 
 HEADERS += \
+        networkmanagerprivate.h \
         qtquicknetworkmanager_plugin.h \
-        networkmanager.h
+        networkmanager.h \
+        wifiaccesspointsmodel.h
 
 #DISTFILES = qmldir \
 #    index.qml

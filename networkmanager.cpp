@@ -9,7 +9,8 @@ NetworkManager::NetworkManager(QQuickItem *parent)
 
     // setFlag(ItemHasContents, true);
     qDebug()<<"Im here";
-    NMDevice *device;
+    nm = NetworkManagerPrivate::getInstance();
+//    NMDevice *device;
 
 }
 

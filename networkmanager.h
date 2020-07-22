@@ -4,13 +4,7 @@
 #include <QQuickItem>
 #include <QDebug>
 
-#include <arpa/inet.h>
-#include <QThread>
-
-#include <NetworkManagerQt/Manager>
-#include <NetworkManagerQt/Device>
-#include <NetworkManagerQt/WirelessDevice>
-#include <NetworkManagerQt/AccessPoint>
+#include "networkmanagerprivate.h"
 
 class NetworkManager : public QQuickItem
 {
@@ -20,6 +14,8 @@ class NetworkManager : public QQuickItem
 public:
     explicit NetworkManager(QQuickItem *parent = nullptr);
     ~NetworkManager() override;
+private:
+    NetworkManagerPrivate *nm;
 };
 
 #endif // NETWORKMANAGER_H
