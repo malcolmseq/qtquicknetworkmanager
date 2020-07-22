@@ -11,8 +11,9 @@ WifiAccessPointsModel::WifiAccessPointsModel(QObject *parent)
 void WifiAccessPointsModel::updateWifiCount(int count)
 {
     qDebug()<<"WifiAccessPointsModel::updateWifiCount::count="<<count;
+    beginResetModel();
     _count = count;
-    emit dataChanged(0, _count);
+    endResetModel();
 }
 
 QHash<int, QByteArray> WifiAccessPointsModel::roleNames() const
@@ -31,11 +32,18 @@ int WifiAccessPointsModel::rowCount(const QModelIndex &parent) const
 
 QVariant WifiAccessPointsModel::data(const QModelIndex &index, int role) const
 {
-    Q_UNUSED(index)
+//    Q_UNUSED(index)
     Q_UNUSED(role)
-//    if(!index.isValid()) {
-//        return QVariant();
-//    }
+    if(!index.isValid() || index.row() >= _count) {
+        return QVariant();
+    }
 
-    return "MALCOLM"; //nm->wifi_access_points.at(index.row()).ssid;
+    switch(role) {
+    case 0:
+        return nm->wifi_access_points.at(index.row()).ssid;
+    case 1:
+        return nm->wifi_access_points.at(index.row()).strength;
+    default:
+        return QVariant();
+    }
 }
